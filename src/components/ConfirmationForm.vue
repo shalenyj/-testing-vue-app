@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     handleConfirm() {
-      this.$emit('submit', this.name)
+      this.$emit("submit", this.name);
     },
   },
 };
