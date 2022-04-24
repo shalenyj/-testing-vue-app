@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ConfirmationForm name="confirm-form" @submit="handleSubmit" />
+    <p v-if="name" id="greeting">Hi {{ name }}, we found this for you</p>
+
+    <FakeList v-if="isFilled" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import ConfirmationForm from "@/components/ConfirmationForm";
+import FakeList from "./components/FakeList.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    ConfirmationForm,
+    FakeList,
+  },
+  data() {
+    return {
+      isFilled: false,
+      name: null,
+    };
+  },
+  methods: {
+    handleSubmit(name) {
+      this.name = name;
+      this.isFilled = true;
+    },
   },
 };
 </script>
 
 <style>
+* {
+  padding: 0;
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>

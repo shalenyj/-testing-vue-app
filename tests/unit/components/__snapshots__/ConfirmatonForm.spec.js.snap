@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@/elements/ConfirmationForm should match snapshot 1`] = `
+<form
+  name="name"
+>
+  <div
+    class="input-wrap"
+  >
+    <label
+      for="name"
+    >
+      Name: 
+    </label>
+     
+    <input
+      id="name"
+      placeholder="Tell us your name"
+      required="required"
+      type="text"
+    />
+  </div>
+   
+  <section
+    class="buttons"
+  >
+    <button
+      class="t-button"
+      type="submit"
+    >
+      
+  confirm
+
+    </button>
+  </section>
+</form>
+`;

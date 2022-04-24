@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@/elements/TButton should mount with not default type 1`] = `
+<button
+  class="t-button"
+  type="submit"
+>
+  
+  Hey now
+
+</button>
+`;
+
+exports[`@/elements/TButton should mount with title 1`] = `
+<button
+  class="t-button"
+  type="button"
+>
+  
+  Hey now
+
+</button>
+`;
