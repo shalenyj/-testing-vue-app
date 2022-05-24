@@ -8,10 +8,8 @@ describe("My First E2E Tests", () => {
     cy.get("#stories").should("be.visible");
   });
   it("should provide no results text", () => {
-    const name = "Ivan";
-
     cy.server();
-    cy.route("/posts", { data: [] });
+    cy.route("https://jsonplaceholder.typicode.com/posts", { data: [] });
 
     cy.visit("/");
     cy.get("#name").type(name);

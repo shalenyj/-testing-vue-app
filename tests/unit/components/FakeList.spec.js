@@ -4,12 +4,15 @@ import { default as FakeList, MIN_ID, MAX_ID } from "@/components/FakeList";
 
 const MOCKED_ITEMS = [
   { id: 1, label: "Mocked label" },
-  { id: 2, label: "Another mocked label" },
+  { id: 8, label: "Another mocked label" },
 ];
 
 describe("@/components/FakeList", function () {
   beforeEach(() => {
     this.wrapper = mount(FakeList);
+    this.wrapper.vm.fetchList = jest.fn(); // Replace method with "fake" function
+    // Tell fake function to resolve promise with value
+    this.wrapper.vm.fetchList.mockResolvedValue(MOCKED_ITEMS);
   });
   describe("getFilteredItems", () => {
     it("should call filterHandler for each item", () => {
@@ -28,11 +31,6 @@ describe("@/components/FakeList", function () {
     });
   });
   describe("getItems", () => {
-    beforeEach(() => {
-      this.wrapper.vm.fetchList = jest.fn(); // Replace method with "fake" function
-      // Tell fake function to resolve promise with value
-      this.wrapper.vm.fetchList.mockResolvedValue(MOCKED_ITEMS);
-    });
     it("should call method fetchList", async () => {
       await this.wrapper.vm.getItems();
       // Ask if fake function was called
